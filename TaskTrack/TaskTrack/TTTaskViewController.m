@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 MarkLinington. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TTTaskViewController.h"
 #import "TTTaskCell.h"
 #import "TTTaskManager.h"
 
 
-@interface ViewController ()
+@interface TTTaskViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, atomic) NSIndexPath *selectedRow;
 @property (strong, atomic) TTTaskManager *tasks;
 
 @end
 
-@implementation ViewController
+@implementation TTTaskViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
