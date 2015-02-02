@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewTaskViewController.h"
 
-@interface ViewController : UIViewController <UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, NewTaskViewControllerDelegate>
+@interface ViewController : UIViewController <UINavigationControllerDelegate, NewTaskViewControllerDelegate>
 
 
 @end

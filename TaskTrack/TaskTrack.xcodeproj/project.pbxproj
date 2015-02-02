@@ -16,6 +16,7 @@
 		1104F2501A7F2B2B002AF5A1 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F24F1A7F2B2B002AF5A1 /* NewTaskViewController.m */; };
 		1104F2531A7FE8D5002AF5A1 /* TTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F2521A7FE8D5002AF5A1 /* TTTask.m */; };
 		1104F2561A800085002AF5A1 /* TTTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F2551A800085002AF5A1 /* TTTaskCell.m */; };
+		1104F25C1A8014AC002AF5A1 /* TTTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F25B1A8014AC002AF5A1 /* TTTaskManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		1104F2521A7FE8D5002AF5A1 /* TTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTask.m; sourceTree = "<group>"; };
 		1104F2541A800085002AF5A1 /* TTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTaskCell.h; sourceTree = "<group>"; };
 		1104F2551A800085002AF5A1 /* TTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTaskCell.m; sourceTree = "<group>"; };
+		1104F25A1A8014AC002AF5A1 /* TTTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTaskManager.h; sourceTree = "<group>"; };
+		1104F25B1A8014AC002AF5A1 /* TTTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTaskManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				1104F2521A7FE8D5002AF5A1 /* TTTask.m */,
 				1104F2541A800085002AF5A1 /* TTTaskCell.h */,
 				1104F2551A800085002AF5A1 /* TTTaskCell.m */,
+				1104F25A1A8014AC002AF5A1 /* TTTaskManager.h */,
+				1104F25B1A8014AC002AF5A1 /* TTTaskManager.m */,
 				1104F22F1A7B88C1002AF5A1 /* ViewController.h */,
 				1104F2301A7B88C1002AF5A1 /* ViewController.m */,
 				1104F2281A7B88C1002AF5A1 /* Supporting Files */,
@@ -164,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1104F25C1A8014AC002AF5A1 /* TTTaskManager.m in Sources */,
 				1104F2311A7B88C1002AF5A1 /* ViewController.m in Sources */,
 				1104F22E1A7B88C1002AF5A1 /* AppDelegate.m in Sources */,
 				1104F2531A7FE8D5002AF5A1 /* TTTask.m in Sources */,

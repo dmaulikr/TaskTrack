@@ -39,6 +39,9 @@
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteItem:" destination="UjD-XO-IYw" eventType="touchUpInside" id="2rV-GY-Pfj"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

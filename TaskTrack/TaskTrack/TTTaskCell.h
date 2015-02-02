@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TTTask.h"
+#import "TTTaskManager.h"
 
 @interface TTTaskCell : UITableViewCell
 
-- (void) updateViewWithTask:(TTTask *)task;
+- (void) updateViewWithTask:(TTTask *)task onManager:(TTTaskManager *)manager;
 
 @end
