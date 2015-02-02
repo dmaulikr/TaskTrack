@@ -34,7 +34,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
-                                                    <rect key="frame" x="23" y="43" width="46" height="20.5"/>
+                                                    <rect key="frame" x="23" y="35" width="66" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -61,6 +62,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task List" id="MFO-Lb-7tY">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="0DS-ax-WD8"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ATJ-Fo-cZC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -78,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1091" y="1010"/>
         </scene>
-        <!--New Task View Controller-->
+        <!--New Task-->
         <scene sceneID="kwj-aw-MYX">
             <objects>
                 <viewController id="c1D-Ol-MhT" customClass="NewTaskViewController" sceneMemberID="viewController">
@@ -89,8 +91,42 @@
                     <view key="view" contentMode="scaleToFill" id="iK4-GQ-GPh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAs-BP-OVZ">
+                                <rect key="frame" x="61" y="89" width="478" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RjT-xM-XnT">
+                                <rect key="frame" x="258" y="168" width="85" height="29"/>
+                                <segments>
+                                    <segment title="Low"/>
+                                    <segment title="High"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="RjT-xM-XnT" secondAttribute="centerX" constant="-0.5" id="F3k-Rc-r2g"/>
+                            <constraint firstItem="jAs-BP-OVZ" firstAttribute="top" secondItem="HgD-oL-DPw" secondAttribute="bottom" constant="25" id="Nhl-9r-Rar"/>
+                            <constraint firstItem="jAs-BP-OVZ" firstAttribute="leading" secondItem="iK4-GQ-GPh" secondAttribute="leadingMargin" constant="45" id="Q4K-aO-ybh"/>
+                            <constraint firstAttribute="centerX" secondItem="jAs-BP-OVZ" secondAttribute="centerX" id="cfw-nX-4Tc"/>
+                            <constraint firstItem="RjT-xM-XnT" firstAttribute="top" secondItem="jAs-BP-OVZ" secondAttribute="bottom" constant="49" id="j2C-BV-9Lb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jAs-BP-OVZ" secondAttribute="trailing" constant="45" id="nSR-zG-kVV"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Task" id="Me1-Wr-qd2">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="5XD-0w-usm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ziT-jk-MoK">
+                            <connections>
+                                <action selector="createTask:" destination="c1D-Ol-MhT" id="yf2-de-t6I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskPriority" destination="RjT-xM-XnT" id="cnr-pW-BFe"/>
+                        <outlet property="taskTitle" destination="jAs-BP-OVZ" id="VJs-q3-RrI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOa-N0-Nz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

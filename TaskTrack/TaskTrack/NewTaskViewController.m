@@ -9,6 +9,8 @@
 #import "NewTaskViewController.h"
 
 @interface NewTaskViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *taskTitle;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *taskPriority;
 
 @end
 
@@ -22,6 +24,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)createTask:(id)sender {
+    
 }
 
 /*
