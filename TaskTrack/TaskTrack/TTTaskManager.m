@@ -71,8 +71,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
-        return 75;
-    else return 40;
+        return 60;
+    else return 38;
     
 }
 

@@ -34,8 +34,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
-                                                    <rect key="frame" x="23" y="35" width="66" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="23" y="46" width="51" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -45,7 +45,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mpq-HY-lZ5" secondAttribute="bottom" constant="10" id="7KW-Vf-lLN"/>
+                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mpq-HY-lZ5" secondAttribute="bottom" id="7KW-Vf-lLN"/>
                                                 <constraint firstItem="Mpq-HY-lZ5" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="ADa-ed-afo"/>
                                                 <constraint firstItem="Mpq-HY-lZ5" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="Eui-QP-41Z"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="bottom" secondItem="h4s-36-eQI" secondAttribute="bottom" priority="300" id="T4h-1r-f6P"/>
