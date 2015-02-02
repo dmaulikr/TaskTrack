@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="smallCell" rowHeight="72" id="UjD-XO-IYw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="smallCell" rowHeight="72" id="UjD-XO-IYw" customClass="TTTaskCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjD-XO-IYw" id="h4s-36-eQI">
@@ -49,6 +49,10 @@
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="gkF-YE-cnY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskButton" destination="NuE-eK-c0U" id="CMn-wW-QG9"/>
+                                            <outlet property="taskLabel" destination="Mpq-HY-lZ5" id="rdi-R8-yiE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -66,7 +70,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ATJ-Fo-cZC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="c1D-Ol-MhT" kind="show" id="Fqp-g4-X3l"/>
+                                <segue destination="c1D-Ol-MhT" kind="show" identifier="newTask" id="Fqp-g4-X3l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

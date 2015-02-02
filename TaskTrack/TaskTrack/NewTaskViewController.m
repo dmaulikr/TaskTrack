@@ -26,6 +26,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)createTask:(id)sender {
+    TTTask *newTask = [[TTTask alloc] initWithName:self.taskTitle.text withSeverity:self.taskPriority.selectedSegmentIndex];
+    
+    [self.delegate viewController:self withNewTask:newTask];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

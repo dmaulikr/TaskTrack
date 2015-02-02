@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "TTTaskCell.h"
+
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, atomic) NSIndexPath *selectedRow;
+@property (strong, atomic) NSMutableArray *tasks;
 
 @end
 
@@ -21,6 +24,7 @@
     self.table.dataSource = self;
     self.table.delegate = self;
     self.selectedRow = nil;
+    self.tasks = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -50,13 +54,23 @@
     return nil;
 }
 
+#pragma mark - UINavigationControllerDeleage
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"newTask"])
+    {
+        [(NewTaskViewController *)[segue destinationViewController] setDelegate:self];
+    }
+}
+
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 5;
+        return self.tasks.count;
     }
     else
     {
@@ -71,11 +85,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *newCell = [self.table dequeueReusableCellWithIdentifier:@"smallCell" forIndexPath:indexPath];
+    TTTaskCell *newCell = [self.table dequeueReusableCellWithIdentifier:@"smallCell" forIndexPath:indexPath];
     if(!newCell)
-        newCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"smallCell"];
+        newCell = [[TTTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"smallCell"];
     
+    TTTask *cellTask = self.tasks[indexPath.row];
+    [newCell updateViewWithTask:cellTask];
     return newCell;
+}
+
+#pragma mark - NewTaskViewControllerDelegate
+
+- (void) viewController:(NewTaskViewController *)viewController withNewTask:(TTTask *)task
+{
+    [self.tasks addObject:task];
+    NSLog(@"%@",task);
 }
 
 

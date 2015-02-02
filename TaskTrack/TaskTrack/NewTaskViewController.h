@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTTask.h"
+
+@protocol NewTaskViewControllerDelegate;
 
 @interface NewTaskViewController : UIViewController
+
+@property (weak, atomic) id <NewTaskViewControllerDelegate> delegate;
+
+@end
+
+@protocol NewTaskViewControllerDelegate <NSObject>
+
+@required
+- (void) viewController:(NewTaskViewController *)viewController withNewTask:(TTTask *)task;
 
 @end
