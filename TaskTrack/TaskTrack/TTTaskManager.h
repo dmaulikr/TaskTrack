@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TTTask.h"
 
-@interface TTTaskManager : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface TTTaskManager : NSObject
 
 @property (strong, atomic) NSMutableArray *taskArray;
-@property (weak, atomic) UITableView *table;
+
+- (instancetype) init;
+
+- (void) addTask:(TTTask *)newTask;
+- (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index;
+- (void) removeTaskAtIndex:(NSIndexPath *)index;
+- (TTTask *) getTaskAtIndex:(NSIndexPath *)index;
+
+- (NSUInteger) getNumberOfTasks;
+- (NSUInteger) getNumberOfTasksAtSection:(NSUInteger)section;
+
 
 @end

@@ -12,6 +12,6 @@
 
 @interface TTTaskCell : UITableViewCell
 
-- (void) updateViewWithTask:(TTTask *)task onManager:(TTTaskManager *)manager;
+- (void) updateViewWithTask:(TTTask *)task;
 
 @end

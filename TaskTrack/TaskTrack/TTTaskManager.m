@@ -12,79 +12,44 @@
 
 @interface TTTaskManager ()
 
-@property (strong, atomic) NSIndexPath *selectedRow;
-
 @end
 
 @implementation TTTaskManager
-
 
 - (instancetype) init
 {
     self = [super init];
     if(self)
     {
-        _selectedRow = nil;
         _taskArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void) addTask:(TTTask *)newTask
 {
-    if (section == 0) {
-        return self.taskArray.count;
-    }
-    else
-    {
-        return 0;
-    }
+    [self.taskArray addObject:newTask];
+}
+- (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index
+{
+    self.taskArray[index.row] = task;
+}
+- (void) removeTaskAtIndex:(NSIndexPath *)index
+{
+    [self.taskArray removeObjectAtIndex:index.row];
+}
+- (TTTask *) getTaskAtIndex:(NSIndexPath *)index
+{
+    return self.taskArray[index.row];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSUInteger) getNumberOfTasks
 {
-    return @"Due today";
+    return self.taskArray.count;
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSUInteger) getNumberOfTasksAtSection:(NSUInteger)section
 {
-    TTTaskCell *newCell = [tableView dequeueReusableCellWithIdentifier:@"smallCell" forIndexPath:indexPath];
-    
-    TTTask *cellTask = self.taskArray[indexPath.row];
-    [newCell updateViewWithTask:cellTask onManager:self];
-    return newCell;
-}
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        [self.taskArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
-        return 60;
-    else return 38;
-    
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView beginUpdates];
-    if(self.selectedRow && [self.selectedRow compare:indexPath] == NSOrderedSame)
-        self.selectedRow = nil;
-    else
-        self.selectedRow = indexPath;
-    [tableView endUpdates];
-    return nil;
+    return self.taskArray.count;
 }
 
 @end
