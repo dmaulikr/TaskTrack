@@ -13,6 +13,7 @@
 @property (strong, atomic) NSString *taskName;
 @property NSInteger taskSeverity;
 
+- (instancetype) init;
 - (instancetype) initWithName:(NSString *)name;
 - (instancetype) initWithName:(NSString *)name withSeverity:(NSInteger)severity;
 

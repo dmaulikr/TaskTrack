@@ -10,6 +10,11 @@
 
 @implementation TTTask
 
+- (instancetype) init
+{
+    return [self initWithName:@""];
+}
+
 - (instancetype) initWithName:(NSString *)name
 {
     return [self initWithName:name withSeverity:0];

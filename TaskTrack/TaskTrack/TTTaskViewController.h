@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewTaskViewController.h"
 #import "TTTaskCell.h"
 
 
-@interface TTTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, NewTaskViewControllerDelegate, TTTaskCellDelegate>
+@interface TTTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, TTTaskCellDelegate>
 
 
 @end

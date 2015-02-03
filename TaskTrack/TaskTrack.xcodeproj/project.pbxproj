@@ -13,7 +13,6 @@
 		1104F2341A7B88C1002AF5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1104F2321A7B88C1002AF5A1 /* Main.storyboard */; };
 		1104F2361A7B88C1002AF5A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1104F2351A7B88C1002AF5A1 /* Images.xcassets */; };
 		1104F2391A7B88C1002AF5A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1104F2371A7B88C1002AF5A1 /* LaunchScreen.xib */; };
-		1104F2501A7F2B2B002AF5A1 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F24F1A7F2B2B002AF5A1 /* NewTaskViewController.m */; };
 		1104F2531A7FE8D5002AF5A1 /* TTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F2521A7FE8D5002AF5A1 /* TTTask.m */; };
 		1104F2561A800085002AF5A1 /* TTTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F2551A800085002AF5A1 /* TTTaskCell.m */; };
 		1104F25C1A8014AC002AF5A1 /* TTTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1104F25B1A8014AC002AF5A1 /* TTTaskManager.m */; };
@@ -30,8 +29,6 @@
 		1104F2331A7B88C1002AF5A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1104F2351A7B88C1002AF5A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1104F2381A7B88C1002AF5A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1104F24E1A7F2B2B002AF5A1 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
-		1104F24F1A7F2B2B002AF5A1 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		1104F2511A7FE8D5002AF5A1 /* TTTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTask.h; sourceTree = "<group>"; };
 		1104F2521A7FE8D5002AF5A1 /* TTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTask.m; sourceTree = "<group>"; };
 		1104F2541A800085002AF5A1 /* TTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTaskCell.h; sourceTree = "<group>"; };
@@ -75,8 +72,6 @@
 				1104F2351A7B88C1002AF5A1 /* Images.xcassets */,
 				1104F2371A7B88C1002AF5A1 /* LaunchScreen.xib */,
 				1104F2321A7B88C1002AF5A1 /* Main.storyboard */,
-				1104F24E1A7F2B2B002AF5A1 /* NewTaskViewController.h */,
-				1104F24F1A7F2B2B002AF5A1 /* NewTaskViewController.m */,
 				1104F2511A7FE8D5002AF5A1 /* TTTask.h */,
 				1104F2521A7FE8D5002AF5A1 /* TTTask.m */,
 				1104F2541A800085002AF5A1 /* TTTaskCell.h */,
@@ -173,7 +168,6 @@
 				1104F2311A7B88C1002AF5A1 /* TTTaskViewController.m in Sources */,
 				1104F22E1A7B88C1002AF5A1 /* AppDelegate.m in Sources */,
 				1104F2531A7FE8D5002AF5A1 /* TTTask.m in Sources */,
-				1104F2501A7F2B2B002AF5A1 /* NewTaskViewController.m in Sources */,
 				1104F2561A800085002AF5A1 /* TTTaskCell.m in Sources */,
 				1104F22B1A7B88C1002AF5A1 /* main.m in Sources */,
 			);
@@ -318,6 +312,7 @@
 				1104F24A1A7B88C1002AF5A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

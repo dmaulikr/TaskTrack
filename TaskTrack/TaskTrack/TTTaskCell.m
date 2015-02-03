@@ -70,10 +70,11 @@
     [self.delegate taskCell:self changedTitle:@"ButtonHit"];
 }
 
-- (void) enableUpdates:(BOOL)shouldEnableUpdates
+- (void) enableUpdates:(BOOL)shouldEnableUpdates focus:(BOOL)shouldFocus
 {
     [self.taskField endEditing:YES];
     self.taskField.enabled = shouldEnableUpdates;
+    if(shouldFocus) [self.taskField becomeFirstResponder];
     //    [self.taskField.gestureRecognizers[0] setEnabled:shouldEnableUpdates];
 
 }
@@ -83,6 +84,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 {
     [textField resignFirstResponder];
+    [self.delegate taskCell:self changedTitle:textField.text];
     return YES;
 }
 

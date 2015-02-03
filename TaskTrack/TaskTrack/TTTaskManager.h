@@ -16,7 +16,8 @@
 
 - (instancetype) init;
 
-- (void) addTask:(TTTask *)newTask;
+- (void) addTask:(TTTask *)task toSection:(NSUInteger)section;
+- (void) moveTaskAtIndex:(NSIndexPath *)index toSection:(NSUInteger)section;
 - (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index;
 - (void) removeTaskAtIndex:(NSIndexPath *)index;
 - (TTTask *) getTaskAtIndex:(NSIndexPath *)index;

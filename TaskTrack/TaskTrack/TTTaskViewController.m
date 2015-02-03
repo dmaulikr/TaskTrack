@@ -35,6 +35,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)createNewTask:(id)sender {
+    TTTask *task = [[TTTask alloc] init];
+    [self.table beginUpdates];
+    [self.tasks addTask:task toSection:0];
+    self.selectedRow = [NSIndexPath indexPathForItem:0 inSection:0];
+    [self.table insertRowsAtIndexPaths:@[self.selectedRow] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.table endUpdates];
+    [(TTTaskCell *)[self.table cellForRowAtIndexPath:self.selectedRow] enableUpdates:YES focus:YES];
+}
 
 #pragma mark - TTTaskCellDelegate
 
@@ -43,9 +52,11 @@
     NSIndexPath *cellPath = [self.table indexPathForCell:cell];
     TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
     updatingTask.taskName = newTitle;
-    [self.tasks updateTask:updatingTask atIndex:cellPath];
     [self.table beginUpdates];
+    [self.tasks updateTask:updatingTask atIndex:cellPath];
+    [self.tasks moveTaskAtIndex:cellPath toSection:1];
     [cell updateViewWithTask:updatingTask];
+    [self.table moveRowAtIndexPath:cellPath toIndexPath:[NSIndexPath indexPathForItem:cellPath.row inSection:1]];
     [self.table endUpdates];
 }
 
@@ -54,32 +65,18 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"newTask"])
-    {
-        [(NewTaskViewController *)[segue destinationViewController] setDelegate:self];
-    }
-}
-
-#pragma mark - NewTaskViewControllerDelegate
-
-- (void) viewController:(NewTaskViewController *)viewController withNewTask:(TTTask *)task
-{
-    [self.tasks addTask:task];
-    NSLog(@"%@",task);
 }
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0)
-    {
-        return [self.tasks getNumberOfTasks];
-    }
-    else
-    {
-        return 0;
-    }
+    return [self.tasks getNumberOfTasksAtSection:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -120,14 +117,14 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView beginUpdates];
-    [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO];
+    [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO focus:NO];
     if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
     {
         self.selectedRow = nil;
     }
     else
     {
-        [(TTTaskCell *)[tableView cellForRowAtIndexPath:indexPath] enableUpdates:YES];
+        [(TTTaskCell *)[tableView cellForRowAtIndexPath:indexPath] enableUpdates:YES focus:NO];
         self.selectedRow = indexPath;
     }
     [tableView endUpdates];

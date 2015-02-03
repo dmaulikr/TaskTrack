@@ -17,7 +17,7 @@
 @property (strong, atomic) id <TTTaskCellDelegate> delegate;
 
 - (void) updateViewWithTask:(TTTask *)task;
-- (void) enableUpdates:(BOOL)shouldEnableUpdates;
+- (void) enableUpdates:(BOOL)shouldEnableUpdates focus:(BOOL)shouldFocus;
 
 @end
 
