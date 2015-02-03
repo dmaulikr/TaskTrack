@@ -20,7 +20,8 @@
 
 @implementation TTTaskViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.tasks = [[TTTaskManager alloc] init];
     self.table.dataSource = self;
@@ -29,7 +30,8 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -70,7 +72,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == 0)
+    {
         return [self.tasks getNumberOfTasks];
     }
     else
@@ -117,9 +120,9 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView beginUpdates];
-    if(self.selectedRow && [self.selectedRow compare:indexPath] == NSOrderedSame)
+    [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO];
+    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
     {
-        [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO];
         self.selectedRow = nil;
     }
     else

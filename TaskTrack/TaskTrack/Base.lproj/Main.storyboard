@@ -27,13 +27,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjD-XO-IYw" id="h4s-36-eQI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Small" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpq-HY-lZ5">
-                                                    <rect key="frame" x="23" y="13" width="43" height="25"/>
-                                                    <gestureRecognizers/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
                                                     <rect key="frame" x="23" y="46" width="51" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -44,19 +37,28 @@
                                                         <action selector="buttonHit:" destination="UjD-XO-IYw" eventType="touchUpInside" id="Ng1-3P-vag"/>
                                                     </connections>
                                                 </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is definitely a test" placeholder="BlankText" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-xu-c7Y">
+                                                    <rect key="frame" x="23" y="8" width="183" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="l6o-Rq-hnP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textField>
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>
-                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mpq-HY-lZ5" secondAttribute="bottom" id="7KW-Vf-lLN"/>
-                                                <constraint firstItem="Mpq-HY-lZ5" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="ADa-ed-afo"/>
-                                                <constraint firstItem="Mpq-HY-lZ5" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="Eui-QP-41Z"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="bottom" secondItem="h4s-36-eQI" secondAttribute="bottom" priority="300" id="T4h-1r-f6P"/>
+                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="Ub0-Ej-tSH"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="trailing" priority="500" constant="15" id="bDb-9s-lEV"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="gkF-YE-cnY"/>
+                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" id="izT-TW-Nh5"/>
+                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="yfT-3v-S41"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="taskButton" destination="NuE-eK-c0U" id="CMn-wW-QG9"/>
-                                            <outlet property="taskLabel" destination="Mpq-HY-lZ5" id="rdi-R8-yiE"/>
+                                            <outlet property="taskField" destination="UPQ-xu-c7Y" id="eKA-LT-yrB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

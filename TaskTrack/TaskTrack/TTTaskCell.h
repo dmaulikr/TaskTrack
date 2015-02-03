@@ -12,7 +12,7 @@
 
 @protocol TTTaskCellDelegate;
 
-@interface TTTaskCell : UITableViewCell
+@interface TTTaskCell : UITableViewCell <UITextFieldDelegate>
 
 @property (strong, atomic) id <TTTaskCellDelegate> delegate;
 
