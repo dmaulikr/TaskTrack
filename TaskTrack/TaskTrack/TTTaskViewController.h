@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "NewTaskViewController.h"
+#import "TTTaskCell.h"
 
-@interface TTTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, NewTaskViewControllerDelegate>
+
+@interface TTTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, NewTaskViewControllerDelegate, TTTaskCellDelegate>
 
 
 @end

@@ -18,7 +18,11 @@
 @implementation TTTaskCell
 
 - (void)awakeFromNib {
-    // Initialization code
+            UITapGestureRecognizer *editLabelRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editTitle:)];
+            editLabelRecognizer.numberOfTapsRequired = 1;
+            editLabelRecognizer.enabled = NO;
+            [self.taskLabel addGestureRecognizer:editLabelRecognizer];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,6 +36,20 @@
     self.taskLabel.text = task.taskName;
 //    [self.taskButton setTitle:@"Test" forState:nXXil];
     
+}
+- (IBAction)buttonHit:(id)sender {
+    [self.delegate taskCell:self changedTitle:@"ButtonHit"];
+}
+
+- (void) enableUpdates:(BOOL)shouldEnableUpdates
+{
+    [self.taskLabel.gestureRecognizers[0] setEnabled:shouldEnableUpdates];
+
+}
+
+- (IBAction) editTitle:(id)sender
+{
+    NSLog(@"Hit");
 }
 
 

@@ -10,8 +10,20 @@
 #import "TTTask.h"
 #import "TTTaskManager.h"
 
+@protocol TTTaskCellDelegate;
+
 @interface TTTaskCell : UITableViewCell
 
+@property (strong, atomic) id <TTTaskCellDelegate> delegate;
+
 - (void) updateViewWithTask:(TTTask *)task;
+- (void) enableUpdates:(BOOL)shouldEnableUpdates;
+
+@end
+
+@protocol TTTaskCellDelegate <NSObject>
+
+@required
+- (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle;
 
 @end

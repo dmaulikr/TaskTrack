@@ -34,6 +34,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - TTTaskCellDelegate
+
+- (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle
+{
+    NSIndexPath *cellPath = [self.table indexPathForCell:cell];
+    TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
+    updatingTask.taskName = newTitle;
+    [self.tasks updateTask:updatingTask atIndex:cellPath];
+    [self.table beginUpdates];
+    [cell updateViewWithTask:updatingTask];
+    [self.table endUpdates];
+}
+
 
 #pragma mark - UINavigationControllerDeleage
 
@@ -77,6 +90,7 @@
     
     TTTask *cellTask = [self.tasks getTaskAtIndex:indexPath];
     [newCell updateViewWithTask:cellTask];
+    newCell.delegate = self;
     NSLog(@"%@",self);
     return newCell;
 }
@@ -104,9 +118,15 @@
 {
     [tableView beginUpdates];
     if(self.selectedRow && [self.selectedRow compare:indexPath] == NSOrderedSame)
+    {
+        [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO];
         self.selectedRow = nil;
+    }
     else
+    {
+        [(TTTaskCell *)[tableView cellForRowAtIndexPath:indexPath] enableUpdates:YES];
         self.selectedRow = indexPath;
+    }
     [tableView endUpdates];
     return nil;
 }

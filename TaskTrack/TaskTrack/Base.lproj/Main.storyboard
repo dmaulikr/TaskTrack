@@ -27,8 +27,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjD-XO-IYw" id="h4s-36-eQI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Small" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpq-HY-lZ5">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Small" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpq-HY-lZ5">
                                                     <rect key="frame" x="23" y="13" width="43" height="25"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -40,10 +41,11 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteItem:" destination="UjD-XO-IYw" eventType="touchUpInside" id="2rV-GY-Pfj"/>
+                                                        <action selector="buttonHit:" destination="UjD-XO-IYw" eventType="touchUpInside" id="Ng1-3P-vag"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mpq-HY-lZ5" secondAttribute="bottom" id="7KW-Vf-lLN"/>
                                                 <constraint firstItem="Mpq-HY-lZ5" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="ADa-ed-afo"/>
