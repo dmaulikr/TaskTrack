@@ -27,7 +27,6 @@
     [self.taskField sizeToFit];
     [self.taskField addTarget:self action:@selector(isEditing:) forControlEvents:UIControlEventEditingChanged];
     [self.taskField layoutIfNeeded];
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,25 +37,10 @@
 
 - (void) isEditing:(id)sender
 {
-    if(self.taskField.text.length > 0)
+    CGSize size = [self.taskField.text sizeWithAttributes:self.taskField.defaultTextAttributes];
+    if (size.width > self.taskField.frame.size.width)
     {
-        NSString *oldText = [self.taskField.text substringToIndex:self.taskField.text.length-1];
-        CGSize size = [oldText sizeWithAttributes:self.taskField.defaultTextAttributes];
-        if (size.width > [UIScreen mainScreen].bounds.size.width-50) {
-            self.taskField.text = oldText;
-        }
-        else
-        {
-            size = [self.taskField.text sizeWithAttributes:self.taskField.defaultTextAttributes];
-            CGRect newFrame = {self.taskField.frame.origin, size};
-            self.taskField.frame = newFrame;
-        }
-    }
-    else
-    {
-        CGSize size = [self.taskField.text sizeWithAttributes:self.taskField.defaultTextAttributes];
-        CGRect newFrame = {self.taskField.frame.origin, size};
-        self.taskField.frame = newFrame;
+        self.taskField.text = [self.taskField.text substringToIndex:self.taskField.text.length-1];
     }
 }
 

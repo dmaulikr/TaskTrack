@@ -38,10 +38,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is definitely a test" placeholder="BlankText" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-xu-c7Y">
-                                                    <rect key="frame" x="23" y="8" width="183" height="22"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="l6o-Rq-hnP"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="23" y="8" width="554" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
@@ -50,7 +47,7 @@
                                             <constraints>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="bottom" secondItem="h4s-36-eQI" secondAttribute="bottom" priority="300" id="T4h-1r-f6P"/>
                                                 <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="Ub0-Ej-tSH"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="trailing" priority="500" constant="15" id="bDb-9s-lEV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UPQ-xu-c7Y" secondAttribute="trailing" constant="15" id="bDb-9s-lEV"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="gkF-YE-cnY"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" id="izT-TW-Nh5"/>
                                                 <constraint firstItem="UPQ-xu-c7Y" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="yfT-3v-S41"/>
