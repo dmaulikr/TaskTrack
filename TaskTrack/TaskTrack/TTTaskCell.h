@@ -18,6 +18,7 @@
 
 - (void) updateViewWithTask:(TTTask *)task;
 - (void) enableUpdates:(BOOL)shouldEnableUpdates focus:(BOOL)shouldFocus;
+- (CGFloat) getHeight;
 
 @end
 
@@ -25,5 +26,6 @@
 
 @required
 - (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle;
+- (void) taskCell:(TTTaskCell *)cell expandDate:(BOOL)shouldExpand;
 
 @end

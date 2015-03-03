@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sortSelection;
 @property (strong, atomic) NSIndexPath *selectedRow;
+@property (atomic) BOOL expanded;
 @property (strong, atomic) TTTaskManager *tasks;
 
 @end
@@ -28,6 +29,7 @@
     self.table.dataSource = self;
     self.table.delegate = self;
     self.selectedRow = nil;
+    self.expanded = NO;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -77,6 +79,14 @@
     updatingTask.taskName = newTitle;
     [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
     [self sortTable:nil];
+}
+
+- (void) taskCell:(TTTaskCell *)cell expandDate:(BOOL)shouldExpand
+{
+    self.expanded = shouldExpand;
+    
+    [self.table beginUpdates];
+    [self.table endUpdates];
 }
 
 
@@ -133,10 +143,12 @@
 {
     // The height for each row is not determined by the model at all
     // View is responsible for figuring it out based on user interactions
-    return [(TTTaskCell *)[tableView cellForRowAtIndexPath:indexPath] getHeight];
-//    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
-//        return 80;//229;//80;
-//    else return 50;
+    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
+    {
+        if(self.expanded) return 229;
+        else return 80;
+    }
+    else return 50;
     
 }
 

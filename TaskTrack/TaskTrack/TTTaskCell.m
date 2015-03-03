@@ -13,18 +13,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *taskField;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) IBOutlet UIButton *taskButton;
-@property (strong, atomic) UIDatePicker *picker;
+
+//@property (atomic) BOOL selected;
 
 @end
 
 @implementation TTTaskCell
 
 - (void)awakeFromNib {
-//    UITapGestureRecognizer *editLabelRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editTitle:)];
-//    editLabelRecognizer.numberOfTapsRequired = 1;
-//    editLabelRecognizer.enabled = NO;
     self.taskField.enabled = NO;
-//    [self.taskField addGestureRecognizer:editLabelRecognizer];
     self.taskField.delegate = self;
     [self.taskField sizeToFit];
     [self.taskField addTarget:self action:@selector(isEditing:) forControlEvents:UIControlEventEditingChanged];
@@ -33,8 +30,12 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (CGFloat) getHeight
+{
+    if(self.selected) return 80;
+    else return 50;
 }
 
 - (void) isEditing:(id)sender
@@ -55,8 +56,9 @@
     self.dateField.text = [formatter stringFromDate:task.dueDate];
     
 }
-- (IBAction)buttonHit:(id)sender {
-    [self.delegate taskCell:self changedTitle:@"ButtonHit"];
+- (IBAction)buttonHit:(UIButton *)sender {
+//    [self.delegate taskCell:self changedTitle:@"ButtonHit"];
+    [self.delegate taskCell:self expandDate:YES];
 }
 
 - (void) enableUpdates:(BOOL)shouldEnableUpdates focus:(BOOL)shouldFocus
