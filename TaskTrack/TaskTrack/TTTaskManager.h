@@ -16,14 +16,13 @@
 
 - (instancetype) init;
 
-- (void) addTask:(TTTask *)task toSection:(NSUInteger)section;
-- (void) moveTaskAtIndex:(NSIndexPath *)index toSection:(NSUInteger)section;
+- (TTTask *) createNewTask;
+- (NSArray *) alphabetize;
 - (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index;
 - (void) removeTaskAtIndex:(NSIndexPath *)index;
 - (TTTask *) getTaskAtIndex:(NSIndexPath *)index;
 
 - (NSUInteger) getNumberOfTasks;
-- (NSUInteger) getNumberOfTasksAtSection:(NSUInteger)section;
 
 
 @end

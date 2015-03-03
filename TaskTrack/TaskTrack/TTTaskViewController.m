@@ -36,9 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)createNewTask:(id)sender {
-    TTTask *task = [[TTTask alloc] init];
     [self.table beginUpdates];
-    [self.tasks addTask:task toSection:0];
+    [self.tasks createNewTask];
     self.selectedRow = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.table insertRowsAtIndexPaths:@[self.selectedRow] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.table endUpdates];
@@ -49,14 +48,21 @@
 
 - (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle
 {
+    [(TTTaskCell *)[self.table cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO focus:NO];
     NSIndexPath *cellPath = [self.table indexPathForCell:cell];
     TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
     updatingTask.taskName = newTitle;
+    [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
+    NSArray *changeArray = [self.tasks alphabetize];
+    
     [self.table beginUpdates];
-    [self.tasks updateTask:updatingTask atIndex:cellPath];
-    [self.tasks moveTaskAtIndex:cellPath toSection:1];
-    [cell updateViewWithTask:updatingTask];
-    [self.table moveRowAtIndexPath:cellPath toIndexPath:[NSIndexPath indexPathForItem:cellPath.row inSection:1]];
+    for (NSArray *array in changeArray) {
+        NSIndexPath *start = [NSIndexPath indexPathForRow:[array[0] intValue] inSection:0];
+        NSIndexPath *end = [NSIndexPath indexPathForRow:[array[1] intValue] inSection:0];
+        
+        [self.table moveRowAtIndexPath:start toIndexPath:end];
+    }
+    self.selectedRow = nil;
     [self.table endUpdates];
 }
 
@@ -71,12 +77,12 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.tasks getNumberOfTasksAtSection:section];
+    return [self.tasks getNumberOfTasks];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -87,6 +93,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TTTaskCell *newCell = [tableView dequeueReusableCellWithIdentifier:@"smallCell" forIndexPath:indexPath];
+    if(newCell == nil)
+    {
+        newCell = [[TTTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"smallCell"];
+    }
     
     TTTask *cellTask = [self.tasks getTaskAtIndex:indexPath];
     [newCell updateViewWithTask:cellTask];
@@ -112,6 +122,11 @@
         return 60;
     else return 38;
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

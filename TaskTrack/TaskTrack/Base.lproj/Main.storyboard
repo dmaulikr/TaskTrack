@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9KH-Ic-Kmf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9KH-Ic-Kmf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="72" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-w5-yfa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-w5-yfa">
+                                <rect key="frame" x="0.0" y="-35" width="600" height="635"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="smallCell" rowHeight="72" id="UjD-XO-IYw" customClass="TTTaskCell">
@@ -65,7 +65,7 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KhG-w5-yfa" secondAttribute="bottom" id="ARX-8I-qc3"/>
                             <constraint firstAttribute="centerX" secondItem="KhG-w5-yfa" secondAttribute="centerX" id="dZs-w6-KCE"/>
-                            <constraint firstItem="KhG-w5-yfa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eCd-gY-nEh"/>
+                            <constraint firstItem="KhG-w5-yfa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-35" id="eCd-gY-nEh"/>
                             <constraint firstAttribute="width" secondItem="KhG-w5-yfa" secondAttribute="width" id="jhf-sa-4Cn"/>
                         </constraints>
                     </view>

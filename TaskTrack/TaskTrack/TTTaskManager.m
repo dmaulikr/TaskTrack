@@ -22,42 +22,53 @@
     if(self)
     {
         _taskArray = [[NSMutableArray alloc] init];
-        _taskArray[0] = [[NSMutableArray alloc] init];
-        _taskArray[1] = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void) addTask:(TTTask *)task toSection:(NSUInteger)section
+- (TTTask *) createNewTask
 {
-    [self.taskArray[section] addObject:task];
+    TTTask *newTask = [[TTTask alloc] init];
+    [self.taskArray insertObject:newTask atIndex:0];
+    return newTask;
 }
-- (void) moveTaskAtIndex:(NSIndexPath *)index toSection:(NSUInteger)section
+
+- (NSArray *) alphabetize
 {
-    [self.taskArray[section] addObject:self.taskArray[index.section][index.row]];
-    [self.taskArray[index.section] removeObjectAtIndex:index.row];
+    NSMutableArray *changeArray = [[NSMutableArray alloc] init];
+    
+    NSArray *unsortedArray =  [self.taskArray copy];
+    [self.taskArray sortUsingComparator:^NSComparisonResult(TTTask *obj1, TTTask *obj2) {
+        return [[obj1.taskName uppercaseString] compare:[obj2.taskName uppercaseString]];
+    }];
+    for (NSUInteger unsortedRow = 0; unsortedRow < unsortedArray.count; unsortedRow++) {
+        NSUInteger sortedRow = [self.taskArray indexOfObject:unsortedArray[unsortedRow]];
+        if(sortedRow != unsortedRow)
+        {
+            [changeArray addObject:@[[NSNumber numberWithInteger:unsortedRow], [NSNumber numberWithInteger:sortedRow]]];
+        }
+    }
+    return changeArray;
 }
+
 - (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index
 {
     self.taskArray[index.section][index.row] = task;
 }
+
 - (void) removeTaskAtIndex:(NSIndexPath *)index
 {
-    [self.taskArray[index.section] removeObjectAtIndex:index.row];
+    [self.taskArray removeObjectAtIndex:index.row];
 }
+
 - (TTTask *) getTaskAtIndex:(NSIndexPath *)index
 {
-    return self.taskArray[index.section][index.row];
+    return self.taskArray[index.row];
 }
 
 - (NSUInteger) getNumberOfTasks
 {
-    abort();
     return self.taskArray.count;
-}
-- (NSUInteger) getNumberOfTasksAtSection:(NSUInteger)section
-{
-    return [self.taskArray[section] count];
 }
 
 @end
