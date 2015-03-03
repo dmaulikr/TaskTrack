@@ -17,7 +17,10 @@
 - (instancetype) init;
 
 - (TTTask *) createNewTask;
-- (NSArray *) alphabetize;
+
+- (NSArray *) sortByName;
+- (NSArray *) sortByDate;
+
 - (void) updateTask:(TTTask *)task atIndex:(NSIndexPath *)index;
 - (void) removeTaskAtIndex:(NSIndexPath *)index;
 - (TTTask *) getTaskAtIndex:(NSIndexPath *)index;

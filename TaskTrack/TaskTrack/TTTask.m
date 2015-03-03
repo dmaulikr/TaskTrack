@@ -17,15 +17,16 @@
 
 - (instancetype) initWithName:(NSString *)name
 {
-    return [self initWithName:name withSeverity:0];
+    NSDate *dueDate = [[NSDate date] dateByAddingTimeInterval:24*60*60];
+    return [self initWithName:name withDate:dueDate];
 }
-- (instancetype) initWithName:(NSString *)name withSeverity:(NSInteger)severity
+- (instancetype) initWithName:(NSString *)name withDate:(NSDate *)date
 {
     self = [super init];
     if(self)
     {
         _taskName = name;
-        _taskSeverity = severity;
+        _dueDate = date;
     }
     return self;
 }

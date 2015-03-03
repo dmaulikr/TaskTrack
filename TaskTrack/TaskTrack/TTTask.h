@@ -11,10 +11,10 @@
 @interface TTTask : NSObject
 
 @property (strong, atomic) NSString *taskName;
-@property NSInteger taskSeverity;
+@property NSDate *dueDate;
 
 - (instancetype) init;
 - (instancetype) initWithName:(NSString *)name;
-- (instancetype) initWithName:(NSString *)name withSeverity:(NSInteger)severity;
+- (instancetype) initWithName:(NSString *)name withDate:(NSDate *)date;
 
 @end

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-w5-yfa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-w5-yfa">
                                 <rect key="frame" x="0.0" y="-35" width="600" height="635"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -27,10 +27,10 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjD-XO-IYw" id="h4s-36-eQI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
-                                                    <rect key="frame" x="23" y="41.5" width="46" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" title="Button">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
+                                                    <rect key="frame" x="23" y="43" width="81" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Set Date">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -38,7 +38,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is definitely a test" placeholder="BlankText" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-xu-c7Y">
-                                                    <rect key="frame" x="23" y="8" width="554" height="22"/>
+                                                    <rect key="frame" x="23" y="13" width="554" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
@@ -46,10 +46,10 @@
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="bottom" secondItem="h4s-36-eQI" secondAttribute="bottom" priority="300" id="T4h-1r-f6P"/>
-                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" id="Ub0-Ej-tSH"/>
+                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="topMargin" constant="5" id="Ub0-Ej-tSH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UPQ-xu-c7Y" secondAttribute="trailing" constant="15" id="bDb-9s-lEV"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="gkF-YE-cnY"/>
-                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" id="izT-TW-Nh5"/>
+                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" constant="10" id="izT-TW-Nh5"/>
                                                 <constraint firstItem="UPQ-xu-c7Y" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="yfT-3v-S41"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -60,10 +60,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DrA-DI-POO">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="IHx-ao-ftf"/>
+                                    <barButtonItem style="plain" id="YP6-Xx-HSU">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="mEu-vB-dhp">
+                                            <rect key="frame" x="207" y="7" width="278" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Alphabetical"/>
+                                                <segment title="Due Soonest"/>
+                                                <segment title="Smart Sort"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="sortTable:" destination="BYZ-38-t0r" eventType="valueChanged" id="zrT-2d-J6a"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="COD-j4-jvl"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KhG-w5-yfa" secondAttribute="bottom" id="ARX-8I-qc3"/>
+                            <constraint firstItem="DrA-DI-POO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bd8-q8-n1c"/>
+                            <constraint firstAttribute="trailing" secondItem="DrA-DI-POO" secondAttribute="trailing" id="KVE-FY-FSL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DrA-DI-POO" secondAttribute="bottom" id="ZS1-8g-Tk7"/>
                             <constraint firstAttribute="centerX" secondItem="KhG-w5-yfa" secondAttribute="centerX" id="dZs-w6-KCE"/>
                             <constraint firstItem="KhG-w5-yfa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-35" id="eCd-gY-nEh"/>
                             <constraint firstAttribute="width" secondItem="KhG-w5-yfa" secondAttribute="width" id="jhf-sa-4Cn"/>
@@ -81,6 +105,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="sortSelection" destination="mEu-vB-dhp" id="gC8-eP-XGQ"/>
                         <outlet property="table" destination="KhG-w5-yfa" id="LXb-K5-WlJ"/>
                     </connections>
                 </viewController>

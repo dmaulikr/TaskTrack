@@ -33,13 +33,31 @@
     return newTask;
 }
 
-- (NSArray *) alphabetize
+- (NSArray *) sortByName
 {
     NSMutableArray *changeArray = [[NSMutableArray alloc] init];
     
     NSArray *unsortedArray =  [self.taskArray copy];
     [self.taskArray sortUsingComparator:^NSComparisonResult(TTTask *obj1, TTTask *obj2) {
         return [[obj1.taskName uppercaseString] compare:[obj2.taskName uppercaseString]];
+    }];
+    for (NSUInteger unsortedRow = 0; unsortedRow < unsortedArray.count; unsortedRow++) {
+        NSUInteger sortedRow = [self.taskArray indexOfObject:unsortedArray[unsortedRow]];
+        if(sortedRow != unsortedRow)
+        {
+            [changeArray addObject:@[[NSNumber numberWithInteger:unsortedRow], [NSNumber numberWithInteger:sortedRow]]];
+        }
+    }
+    return changeArray;
+}
+
+- (NSArray *) sortByDate
+{
+    NSMutableArray *changeArray = [[NSMutableArray alloc] init];
+    
+    NSArray *unsortedArray =  [self.taskArray copy];
+    [self.taskArray sortUsingComparator:^NSComparisonResult(TTTask *obj1, TTTask *obj2) {
+        return [obj2.dueDate compare:obj1.dueDate];
     }];
     for (NSUInteger unsortedRow = 0; unsortedRow < unsortedArray.count; unsortedRow++) {
         NSUInteger sortedRow = [self.taskArray indexOfObject:unsortedArray[unsortedRow]];

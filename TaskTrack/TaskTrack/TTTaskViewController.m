@@ -13,6 +13,7 @@
 
 @interface TTTaskViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sortSelection;
 @property (strong, atomic) NSIndexPath *selectedRow;
 @property (strong, atomic) TTTaskManager *tasks;
 
@@ -44,17 +45,17 @@
     [(TTTaskCell *)[self.table cellForRowAtIndexPath:self.selectedRow] enableUpdates:YES focus:YES];
 }
 
-#pragma mark - TTTaskCellDelegate
-
-- (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle
+- (IBAction)sortTable:(id)sender
 {
-    [(TTTaskCell *)[self.table cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO focus:NO];
-    NSIndexPath *cellPath = [self.table indexPathForCell:cell];
-    TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
-    updatingTask.taskName = newTitle;
-    [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
-    NSArray *changeArray = [self.tasks alphabetize];
-    
+    NSArray *changeArray;
+    if(self.sortSelection.selectedSegmentIndex == 0)
+    {
+        changeArray = [self.tasks sortByName];
+    }
+    if(self.sortSelection.selectedSegmentIndex == 1)
+    {
+        changeArray = [self.tasks sortByDate];
+    }
     [self.table beginUpdates];
     for (NSArray *array in changeArray) {
         NSIndexPath *start = [NSIndexPath indexPathForRow:[array[0] intValue] inSection:0];
@@ -64,6 +65,18 @@
     }
     self.selectedRow = nil;
     [self.table endUpdates];
+}
+
+#pragma mark - TTTaskCellDelegate
+
+- (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle
+{
+    [(TTTaskCell *)[self.table cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO focus:NO];
+    NSIndexPath *cellPath = [self.table indexPathForCell:cell];
+    TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
+    updatingTask.taskName = newTitle;
+    [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self sortTable:nil];
 }
 
 
@@ -119,8 +132,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
-        return 60;
-    else return 38;
+        return 80;
+    else return 50;
     
 }
 
