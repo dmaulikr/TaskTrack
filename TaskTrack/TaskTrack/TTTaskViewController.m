@@ -131,9 +131,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
-        return 80;
-    else return 50;
+    // The height for each row is not determined by the model at all
+    // View is responsible for figuring it out based on user interactions
+    return [(TTTaskCell *)[tableView cellForRowAtIndexPath:indexPath] getHeight];
+//    if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
+//        return 80;//229;//80;
+//    else return 50;
     
 }
 

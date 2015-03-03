@@ -11,7 +11,9 @@
 
 @interface TTTaskCell ()
 @property (weak, nonatomic) IBOutlet UITextField *taskField;
+@property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) IBOutlet UIButton *taskButton;
+@property (strong, atomic) UIDatePicker *picker;
 
 @end
 
@@ -47,7 +49,10 @@
 -(void) updateViewWithTask:(TTTask *)task;
 {
     self.taskField.text = task.taskName;
-//    [self.taskButton setTitle:@"Test" forState:nXXil];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy HH:mm"];
+    self.dateField.text = [formatter stringFromDate:task.dueDate];
     
 }
 - (IBAction)buttonHit:(id)sender {
