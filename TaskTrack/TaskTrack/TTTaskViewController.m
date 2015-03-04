@@ -81,6 +81,14 @@
     [self sortTable:nil];
 }
 
+- (void) taskCell:(TTTaskCell *)cell changedDate:(NSDate *)newDate
+{
+    NSIndexPath *cellPath = [self.table indexPathForCell:cell];
+    TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
+    updatingTask.dueDate = newDate;
+    [self sortTable:nil];
+}
+
 - (void) taskCell:(TTTaskCell *)cell expandDate:(BOOL)shouldExpand
 {
     self.expanded = shouldExpand;

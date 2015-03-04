@@ -12,7 +12,7 @@
 
 @protocol TTTaskCellDelegate;
 
-@interface TTTaskCell : UITableViewCell <UITextFieldDelegate>
+@interface TTTaskCell : UITableViewCell <UITextFieldDelegate, UIPickerViewDelegate>
 
 @property (strong, atomic) id <TTTaskCellDelegate> delegate;
 
@@ -26,6 +26,7 @@
 
 @required
 - (void) taskCell:(TTTaskCell *)cell changedTitle:(NSString *)newTitle;
+- (void) taskCell:(TTTaskCell *)cell changedDate:(NSDate *)newDate;
 - (void) taskCell:(TTTaskCell *)cell expandDate:(BOOL)shouldExpand;
 
 @end

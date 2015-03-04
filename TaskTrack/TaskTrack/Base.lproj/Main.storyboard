@@ -27,8 +27,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjD-XO-IYw" id="h4s-36-eQI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="75" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
-                                                    <rect key="frame" x="23" y="44" width="70" height="22"/>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="75" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-eK-c0U">
+                                                    <rect key="frame" x="23" y="46" width="70" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="hlo-As-sDL"/>
                                                     </constraints>
@@ -36,17 +36,22 @@
                                                     <state key="normal" title="Set Date">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="hlo-As-sDL"/>
+                                                        </mask>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="buttonHit:" destination="UjD-XO-IYw" eventType="touchUpInside" id="Ng1-3P-vag"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is definitely a test" placeholder="BlankText" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-xu-c7Y">
-                                                    <rect key="frame" x="23" y="12" width="554" height="22"/>
+                                                    <rect key="frame" x="23" y="8" width="554" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
-                                                <datePicker clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="o8X-gc-EZW">
-                                                    <rect key="frame" x="0.0" y="66" width="600" height="162"/>
+                                                <datePicker clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="2" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="o8X-gc-EZW">
+                                                    <rect key="frame" x="0.0" y="68" width="600" height="162"/>
                                                     <color key="backgroundColor" red="0.73351866006851196" green="0.73349672555923462" blue="0.73350918292999268" alpha="0.75" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" red="0.7335186601" green="0.73349672560000001" blue="0.7335091829" alpha="0.75" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -55,28 +60,46 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="447111781.90920901">
                                                         <!--2015-03-03 21:43:01 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="dateChanged:" destination="UjD-XO-IYw" eventType="valueChanged" id="Glo-cD-MvQ"/>
+                                                    </connections>
                                                 </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onV-Ku-6UF">
+                                                    <rect key="frame" x="37" y="30" width="35.5" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="7JM-fl-9pJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="o8X-gc-EZW" secondAttribute="bottom" priority="300" id="5pB-Hk-uYg"/>
                                                 <constraint firstItem="o8X-gc-EZW" firstAttribute="top" secondItem="NuE-eK-c0U" secondAttribute="bottom" id="9vE-kD-DJI"/>
                                                 <constraint firstItem="o8X-gc-EZW" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="-8" id="Bno-oq-fxm"/>
+                                                <constraint firstItem="onV-Ku-6UF" firstAttribute="top" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" id="EII-Ie-BX5"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h4s-36-eQI" secondAttribute="bottom" priority="300" id="T4h-1r-f6P"/>
-                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="top" constant="12" id="Ub0-Ej-tSH"/>
+                                                <constraint firstItem="UPQ-xu-c7Y" firstAttribute="top" secondItem="h4s-36-eQI" secondAttribute="top" constant="8" id="Ub0-Ej-tSH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="o8X-gc-EZW" secondAttribute="trailing" constant="-8" id="ZbQ-ko-PLf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UPQ-xu-c7Y" secondAttribute="trailing" constant="15" id="bDb-9s-lEV"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="gkF-YE-cnY"/>
                                                 <constraint firstItem="NuE-eK-c0U" firstAttribute="top" secondItem="UPQ-xu-c7Y" secondAttribute="bottom" constant="10" id="izT-TW-Nh5"/>
+                                                <constraint firstItem="NuE-eK-c0U" firstAttribute="top" secondItem="onV-Ku-6UF" secondAttribute="bottom" id="pOE-ti-8dL"/>
+                                                <constraint firstItem="onV-Ku-6UF" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="29" id="vBQ-FT-MVm"/>
                                                 <constraint firstItem="UPQ-xu-c7Y" firstAttribute="leading" secondItem="h4s-36-eQI" secondAttribute="leadingMargin" constant="15" id="yfT-3v-S41"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="T4h-1r-f6P"/>
+                                                    <exclude reference="izT-TW-Nh5"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateField" destination="onV-Ku-6UF" id="sJ1-cN-Unf"/>
+                                            <outlet property="datePicker" destination="o8X-gc-EZW" id="Jmj-Wj-y9C"/>
                                             <outlet property="taskButton" destination="NuE-eK-c0U" id="CMn-wW-QG9"/>
                                             <outlet property="taskField" destination="UPQ-xu-c7Y" id="eKA-LT-yrB"/>
                                         </connections>
