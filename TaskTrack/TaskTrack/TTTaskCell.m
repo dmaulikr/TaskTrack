@@ -48,7 +48,7 @@
 {
     self.taskField.text = task.taskName;
     self.taskDate = task.dueDate;
-    if([self.taskDate compare:[NSDate distantPast]] == NSOrderedSame)
+    if([self.taskDate compare:[NSDate distantFuture]] == NSOrderedSame)
     {
         self.dateField.hidden = YES;
     }
@@ -65,7 +65,7 @@
     }
     if([sender.titleLabel.text isEqualToString:@"Set Date"])
     {
-        if([self.taskDate compare:[NSDate distantPast]] == NSOrderedSame)
+        if([self.taskDate compare:[NSDate distantFuture]] == NSOrderedSame)
         {
             self.taskDate = [[[NSDate alloc] init] dateByAddingTimeInterval:24*60*60];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -81,6 +81,7 @@
     {
         [sender setTitle:@"Set Date" forState:UIControlStateNormal];
         [self.delegate taskCell:self expandDate:NO];
+        [self.delegate taskCell:self changedDate:self.taskDate];
     }
 }
 
@@ -98,7 +99,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM d yyyy, hh:mm a"];
     self.dateField.text = [formatter stringFromDate:sender.date];
-    [self.delegate taskCell:self changedDate:self.taskDate];
+    self.taskDate = sender.date;
 }
 
 #pragma mark - UITextFieldDelegate

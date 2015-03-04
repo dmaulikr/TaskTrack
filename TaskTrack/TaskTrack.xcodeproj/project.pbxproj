@@ -32,7 +32,7 @@
 		1104F2511A7FE8D5002AF5A1 /* TTTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTask.h; sourceTree = "<group>"; };
 		1104F2521A7FE8D5002AF5A1 /* TTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTask.m; sourceTree = "<group>"; };
 		1104F2541A800085002AF5A1 /* TTTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTaskCell.h; sourceTree = "<group>"; };
-		1104F2551A800085002AF5A1 /* TTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTaskCell.m; sourceTree = "<group>"; };
+		1104F2551A800085002AF5A1 /* TTTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TTTaskCell.m; sourceTree = "<group>"; };
 		1104F25A1A8014AC002AF5A1 /* TTTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTaskManager.h; sourceTree = "<group>"; };
 		1104F25B1A8014AC002AF5A1 /* TTTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTaskManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */

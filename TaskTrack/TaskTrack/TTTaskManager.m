@@ -57,7 +57,7 @@
     
     NSArray *unsortedArray =  [self.taskArray copy];
     [self.taskArray sortUsingComparator:^NSComparisonResult(TTTask *obj1, TTTask *obj2) {
-        return [obj2.dueDate compare:obj1.dueDate];
+        return [obj1.dueDate compare:obj2.dueDate];
     }];
     for (NSUInteger unsortedRow = 0; unsortedRow < unsortedArray.count; unsortedRow++) {
         NSUInteger sortedRow = [self.taskArray indexOfObject:unsortedArray[unsortedRow]];

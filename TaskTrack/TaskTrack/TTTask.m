@@ -17,7 +17,7 @@
 
 - (instancetype) initWithName:(NSString *)name
 {
-    NSDate *dueDate = [NSDate distantPast];
+    NSDate *dueDate = [NSDate distantFuture];
     return [self initWithName:name withDate:dueDate];
 }
 - (instancetype) initWithName:(NSString *)name withDate:(NSDate *)date
