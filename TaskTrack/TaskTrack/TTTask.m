@@ -15,6 +15,28 @@
     return [self initWithName:@""];
 }
 
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(self)
+    {
+        _taskName = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"TaskName"];
+        _dueDate = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"DueDate"];
+    }
+    return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_taskName forKey:@"TaskName"];
+    [aCoder encodeObject:_dueDate forKey:@"DueDate"];
+}
+
++ (BOOL) supportsSecureCoding
+{
+    return YES;
+}
+
 - (instancetype) initWithName:(NSString *)name
 {
     NSDate *dueDate = [NSDate distantFuture];

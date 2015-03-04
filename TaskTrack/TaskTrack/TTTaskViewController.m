@@ -25,12 +25,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tasks = [[TTTaskManager alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveState:) name:UIApplicationWillResignActiveNotification object:[UIApplication sharedApplication]];
+    
+    NSData *taskManagerData = [[NSUserDefaults standardUserDefaults] objectForKey:@"TaskManagerData"];
+    if(taskManagerData != nil)
+    {
+        self.tasks = [NSKeyedUnarchiver unarchiveObjectWithData:taskManagerData];
+        if(self.tasks == nil)
+        {
+            self.tasks = [[TTTaskManager alloc] init];
+        }
+    }
+    else
+    {
+        self.tasks = [[TTTaskManager alloc] init];
+    }
+
     self.table.dataSource = self;
     self.table.delegate = self;
     self.selectedRow = nil;
     self.expanded = NO;
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) saveState:(NSNotification *)notification
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.tasks] forKey:@"TaskManagerData"];
 }
 
 - (void)didReceiveMemoryWarning

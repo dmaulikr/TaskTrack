@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "TTTask.h"
 
-@interface TTTaskManager : NSObject
+@interface TTTaskManager : NSObject <NSSecureCoding>
 
 @property (strong, atomic) NSMutableArray *taskArray;
 

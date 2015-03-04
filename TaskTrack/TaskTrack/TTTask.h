@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TTTask : NSObject
+@interface TTTask : NSObject <NSSecureCoding>
 
 @property (strong, atomic) NSString *taskName;
 @property NSDate *dueDate;

@@ -48,6 +48,11 @@
 {
     self.taskField.text = task.taskName;
     self.taskDate = task.dueDate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d yyyy, hh:mm a"];
+    self.dateField.text = [formatter stringFromDate:self.taskDate];
+    [self.delegate taskCell:self changedDate:self.taskDate];
+    
     if([self.taskDate compare:[NSDate distantFuture]] == NSOrderedSame)
     {
         self.dateField.hidden = YES;

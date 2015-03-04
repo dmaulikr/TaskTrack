@@ -26,6 +26,35 @@
     return self;
 }
 
++ (BOOL) supportsSecureCoding
+{
+    return YES;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_taskArray forKey:@"TaskArray"];
+}
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(self)
+    {
+        _taskArray = [aDecoder decodeObjectOfClass:[NSMutableArray class] forKey:@"TaskArray"];
+    }
+    return self;
+}
+
+
+
+
+
+- (void) saveState:(NSNotification *)notification
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.taskArray forKey:@"TaskArray"];
+}
+
 - (TTTask *) createNewTask
 {
     TTTask *newTask = [[TTTask alloc] init];
