@@ -18,7 +18,6 @@
 
 - (void) updateViewWithTask:(TTTask *)task;
 - (void) enableUpdates:(BOOL)shouldEnableUpdates focus:(BOOL)shouldFocus;
-- (CGFloat) getHeight;
 
 @end
 

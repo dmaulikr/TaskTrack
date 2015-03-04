@@ -59,13 +59,15 @@
         changeArray = [self.tasks sortByDate];
     }
     [self.table beginUpdates];
+    NSIndexPath *newSelectedRow = nil;
     for (NSArray *array in changeArray) {
         NSIndexPath *start = [NSIndexPath indexPathForRow:[array[0] intValue] inSection:0];
         NSIndexPath *end = [NSIndexPath indexPathForRow:[array[1] intValue] inSection:0];
-        
+        if(self.selectedRow == start)
+            newSelectedRow = end;
         [self.table moveRowAtIndexPath:start toIndexPath:end];
     }
-    self.selectedRow = nil;
+    if(newSelectedRow) self.selectedRow = newSelectedRow;
     [self.table endUpdates];
 }
 
@@ -77,7 +79,7 @@
     NSIndexPath *cellPath = [self.table indexPathForCell:cell];
     TTTask *updatingTask = [self.tasks getTaskAtIndex:cellPath];
     updatingTask.taskName = newTitle;
-    [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.table reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationNone];
     [self sortTable:nil];
 }
 
@@ -169,6 +171,7 @@
 {
     [tableView beginUpdates];
     [(TTTaskCell *)[tableView cellForRowAtIndexPath:self.selectedRow] enableUpdates:NO focus:NO];
+    self.expanded = NO;
     if(self.selectedRow && [indexPath compare:self.selectedRow] == NSOrderedSame)
     {
         self.selectedRow = nil;

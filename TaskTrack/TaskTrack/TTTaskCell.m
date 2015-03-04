@@ -35,12 +35,6 @@
     [super setSelected:selected animated:animated];
 }
 
-- (CGFloat) getHeight
-{
-    if(self.selected) return 80;
-    else return 50;
-}
-
 - (void) isEditing:(id)sender
 {
     CGSize size = [self.taskField.text sizeWithAttributes:self.taskField.defaultTextAttributes];
@@ -73,14 +67,13 @@
     {
         if([self.taskDate compare:[NSDate distantPast]] == NSOrderedSame)
         {
-            // TODO: Signal controller to update model
             self.taskDate = [[[NSDate alloc] init] dateByAddingTimeInterval:24*60*60];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"MMM d yyyy, hh:mm a"];
             self.dateField.text = [formatter stringFromDate:self.taskDate];
-            [self.datePicker setDate:self.taskDate animated:NO];
             [self.delegate taskCell:self changedDate:self.taskDate];
         }
+        [self.datePicker setDate:self.taskDate animated:NO];
         [sender setTitle:@"Done" forState:UIControlStateNormal];
         [self.delegate taskCell:self expandDate:YES];
     }
